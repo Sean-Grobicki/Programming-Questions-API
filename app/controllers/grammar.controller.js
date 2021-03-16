@@ -1,6 +1,9 @@
 const getGrammarQuestion = (req,res) =>
 {
-    return res.send({"msg": "grammar get is working"});
+    const tr = require('../lib/templateRandomiser');
+    const out = tr.getFile();
+    console.log("Out = "+ out);
+    return res.send({"msg": out});
 }
 
 

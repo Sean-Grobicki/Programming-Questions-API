@@ -1,6 +1,6 @@
 // Generated from Java9.g4 by ANTLR 4.9.1
 // jshint ignore: start
-import antlr4 from 'antlr4';
+const antlr4 = require('antlr4');
 
 
 
@@ -761,7 +761,7 @@ const atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
 
 const decisionsToDFA = atn.decisionToState.map( (ds, index) => new antlr4.dfa.DFA(ds, index) );
 
-export default class Java9Lexer extends antlr4.Lexer {
+class Java9Lexer extends antlr4.Lexer {
 
     static grammarFileName = "Java9.g4";
     static channelNames = [ "DEFAULT_TOKEN_CHANNEL", "HIDDEN" ];
@@ -996,7 +996,7 @@ Java9Lexer.prototype.JavaLetter_sempred = function(localctx, predIndex) {
 		case 0:
 			return Character.isJavaIdentifierStart(_input.LA(-1));
 		case 1:
-			return Character.isJavaIdentifierStart(Character.toCodePoint((char)_input.LA(-2), (char)_input.LA(-1)));
+			return Character.isJavaIdentifierStart(Character.toCodePoint(_input.LA(-2),_input.LA(-1)));
 		default:
 			throw "No predicate with index:" + predIndex;
 	}
@@ -1007,12 +1007,15 @@ Java9Lexer.prototype.JavaLetterOrDigit_sempred = function(localctx, predIndex) {
 		case 2:
 			return Character.isJavaIdentifierPart(_input.LA(-1));
 		case 3:
-			return Character.isJavaIdentifierPart(Character.toCodePoint((char)_input.LA(-2), (char)_input.LA(-1)));
+			return Character.isJavaIdentifierPart(Character.toCodePoint(input.LA(-2),_input.LA(-1)));
 		default:
 			throw "No predicate with index:" + predIndex;
 	}
 };
 
-
+module.exports = 
+{
+    Java9Lexer: Java9Lexer,
+}
 
 

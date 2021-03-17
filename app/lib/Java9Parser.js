@@ -1,8 +1,8 @@
 // Generated from Java9.g4 by ANTLR 4.9.1
 // jshint ignore: start
-import antlr4 from 'antlr4';
-import Java9Listener from './Java9Listener.js';
-import Java9Visitor from './Java9Visitor.js';
+const antlr4 = require('antlr4');
+const Java9Listener = require('./Java9Listener.js');
+const Java9Visitor = require('./Java9Visitor.js');
 
 
 const serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786",
@@ -2092,7 +2092,7 @@ const decisionsToDFA = atn.decisionToState.map( (ds, index) => new antlr4.dfa.DF
 
 const sharedContextCache = new antlr4.PredictionContextCache();
 
-export default class Java9Parser extends antlr4.Parser {
+class Java9Parser extends antlr4.Parser {
 
     static grammarFileName = "Java9.g4";
     static literalNames = [ null, "'open'", "'module'", "'requires'", "'exports'", 
@@ -14672,7 +14672,7 @@ class LiteralContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitLiteral(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -14730,7 +14730,7 @@ class PrimitiveTypeContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPrimitiveType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -14777,7 +14777,7 @@ class NumericTypeContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitNumericType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -14836,7 +14836,7 @@ class IntegralTypeContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitIntegralType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -14883,7 +14883,7 @@ class FloatingPointTypeContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitFloatingPointType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -14934,7 +14934,7 @@ class ReferenceTypeContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitReferenceType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15003,7 +15003,7 @@ class ClassOrInterfaceTypeContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitClassOrInterfaceType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15069,7 +15069,7 @@ class ClassTypeContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitClassType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15131,7 +15131,7 @@ class ClassType_lf_classOrInterfaceTypeContext extends antlr4.ParserRuleContext 
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitClassType_lf_classOrInterfaceType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15189,7 +15189,7 @@ class ClassType_lfno_classOrInterfaceTypeContext extends antlr4.ParserRuleContex
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitClassType_lfno_classOrInterfaceType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15232,7 +15232,7 @@ class InterfaceTypeContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitInterfaceType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15275,7 +15275,7 @@ class InterfaceType_lf_classOrInterfaceTypeContext extends antlr4.ParserRuleCont
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitInterfaceType_lf_classOrInterfaceType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15318,7 +15318,7 @@ class InterfaceType_lfno_classOrInterfaceTypeContext extends antlr4.ParserRuleCo
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitInterfaceType_lfno_classOrInterfaceType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15372,7 +15372,7 @@ class TypeVariableContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitTypeVariable(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15427,7 +15427,7 @@ class ArrayTypeContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitArrayType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15501,7 +15501,7 @@ class DimsContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitDims(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15559,7 +15559,7 @@ class TypeParameterContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitTypeParameter(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15602,7 +15602,7 @@ class TypeParameterModifierContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitTypeParameterModifier(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15664,7 +15664,7 @@ class TypeBoundContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitTypeBound(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15711,7 +15711,7 @@ class AdditionalBoundContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitAdditionalBound(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15762,7 +15762,7 @@ class TypeArgumentsContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitTypeArguments(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15824,7 +15824,7 @@ class TypeArgumentListContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitTypeArgumentList(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15871,7 +15871,7 @@ class TypeArgumentContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitTypeArgument(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15929,7 +15929,7 @@ class WildcardContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitWildcard(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -15980,7 +15980,7 @@ class WildcardBoundsContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitWildcardBounds(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -16031,7 +16031,7 @@ class ModuleNameContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitModuleName(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -16082,7 +16082,7 @@ class PackageNameContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPackageName(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -16133,7 +16133,7 @@ class TypeNameContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitTypeName(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -16184,7 +16184,7 @@ class PackageOrTypeNameContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPackageOrTypeName(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -16235,7 +16235,7 @@ class ExpressionNameContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitExpressionName(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -16278,7 +16278,7 @@ class MethodNameContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitMethodName(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -16329,7 +16329,7 @@ class AmbiguousNameContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitAmbiguousName(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -16376,7 +16376,7 @@ class CompilationUnitContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitCompilationUnit(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -16445,7 +16445,7 @@ class OrdinaryCompilationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitOrdinaryCompilation(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -16499,7 +16499,7 @@ class ModularCompilationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitModularCompilation(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -16561,7 +16561,7 @@ class PackageDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPackageDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -16604,7 +16604,7 @@ class PackageModifierContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPackageModifier(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -16659,7 +16659,7 @@ class ImportDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitImportDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -16710,7 +16710,7 @@ class SingleTypeImportDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitSingleTypeImportDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -16769,7 +16769,7 @@ class TypeImportOnDemandDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitTypeImportOnDemandDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -16832,7 +16832,7 @@ class SingleStaticImportDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitSingleStaticImportDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -16895,7 +16895,7 @@ class StaticImportOnDemandDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitStaticImportOnDemandDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -16946,7 +16946,7 @@ class TypeDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitTypeDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -17019,7 +17019,7 @@ class ModuleDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitModuleDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -17111,7 +17111,7 @@ class ModuleDirectiveContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitModuleDirective(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -17154,7 +17154,7 @@ class RequiresModifierContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitRequiresModifier(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -17201,7 +17201,7 @@ class ClassDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitClassDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -17275,7 +17275,7 @@ class NormalClassDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitNormalClassDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -17346,7 +17346,7 @@ class ClassModifierContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitClassModifier(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -17397,7 +17397,7 @@ class TypeParametersContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitTypeParameters(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -17459,7 +17459,7 @@ class TypeParameterListContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitTypeParameterList(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -17506,7 +17506,7 @@ class SuperclassContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitSuperclass(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -17553,7 +17553,7 @@ class SuperinterfacesContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitSuperinterfaces(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -17615,7 +17615,7 @@ class InterfaceTypeListContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitInterfaceTypeList(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -17673,7 +17673,7 @@ class ClassBodyContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitClassBody(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -17728,7 +17728,7 @@ class ClassBodyDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitClassBodyDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -17787,7 +17787,7 @@ class ClassMemberDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitClassMemberDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -17849,7 +17849,7 @@ class FieldDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitFieldDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -17920,7 +17920,7 @@ class FieldModifierContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitFieldModifier(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -17982,7 +17982,7 @@ class VariableDeclaratorListContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitVariableDeclaratorList(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18033,7 +18033,7 @@ class VariableDeclaratorContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitVariableDeclarator(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18080,7 +18080,7 @@ class VariableDeclaratorIdContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitVariableDeclaratorId(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18127,7 +18127,7 @@ class VariableInitializerContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitVariableInitializer(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18174,7 +18174,7 @@ class UnannTypeContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitUnannType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18221,7 +18221,7 @@ class UnannPrimitiveTypeContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitUnannPrimitiveType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18272,7 +18272,7 @@ class UnannReferenceTypeContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitUnannReferenceType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18341,7 +18341,7 @@ class UnannClassOrInterfaceTypeContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitUnannClassOrInterfaceType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18407,7 +18407,7 @@ class UnannClassTypeContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitUnannClassType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18469,7 +18469,7 @@ class UnannClassType_lf_unannClassOrInterfaceTypeContext extends antlr4.ParserRu
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitUnannClassType_lf_unannClassOrInterfaceType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18516,7 +18516,7 @@ class UnannClassType_lfno_unannClassOrInterfaceTypeContext extends antlr4.Parser
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitUnannClassType_lfno_unannClassOrInterfaceType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18559,7 +18559,7 @@ class UnannInterfaceTypeContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitUnannInterfaceType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18602,7 +18602,7 @@ class UnannInterfaceType_lf_unannClassOrInterfaceTypeContext extends antlr4.Pars
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitUnannInterfaceType_lf_unannClassOrInterfaceType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18645,7 +18645,7 @@ class UnannInterfaceType_lfno_unannClassOrInterfaceTypeContext extends antlr4.Pa
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitUnannInterfaceType_lfno_unannClassOrInterfaceType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18688,7 +18688,7 @@ class UnannTypeVariableContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitUnannTypeVariable(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18743,7 +18743,7 @@ class UnannArrayTypeContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitUnannArrayType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18801,7 +18801,7 @@ class MethodDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitMethodDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18880,7 +18880,7 @@ class MethodModifierContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitMethodModifier(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18946,7 +18946,7 @@ class MethodHeaderContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitMethodHeader(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -18993,7 +18993,7 @@ class ResultContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitResult(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -19052,7 +19052,7 @@ class MethodDeclaratorContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitMethodDeclarator(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -19107,7 +19107,7 @@ class FormalParameterListContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitFormalParameterList(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -19173,7 +19173,7 @@ class FormalParametersContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitFormalParameters(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -19231,7 +19231,7 @@ class FormalParameterContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitFormalParameter(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -19278,7 +19278,7 @@ class VariableModifierContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitVariableModifier(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -19355,7 +19355,7 @@ class LastFormalParameterContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitLastFormalParameter(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -19421,7 +19421,7 @@ class ReceiverParameterContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitReceiverParameter(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -19468,7 +19468,7 @@ class Throws_Context extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitThrows_(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -19530,7 +19530,7 @@ class ExceptionTypeListContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitExceptionTypeList(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -19577,7 +19577,7 @@ class ExceptionTypeContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitExceptionType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -19624,7 +19624,7 @@ class MethodBodyContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitMethodBody(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -19667,7 +19667,7 @@ class InstanceInitializerContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitInstanceInitializer(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -19714,7 +19714,7 @@ class StaticInitializerContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitStaticInitializer(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -19776,7 +19776,7 @@ class ConstructorDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitConstructorDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -19831,7 +19831,7 @@ class ConstructorModifierContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitConstructorModifier(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -19890,7 +19890,7 @@ class ConstructorDeclaratorContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitConstructorDeclarator(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -19933,7 +19933,7 @@ class SimpleTypeNameContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitSimpleTypeName(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -19988,7 +19988,7 @@ class ConstructorBodyContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitConstructorBody(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -20067,7 +20067,7 @@ class ExplicitConstructorInvocationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitExplicitConstructorInvocation(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -20133,7 +20133,7 @@ class EnumDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitEnumDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -20192,7 +20192,7 @@ class EnumBodyContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitEnumBody(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -20254,7 +20254,7 @@ class EnumConstantListContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitEnumConstantList(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -20324,7 +20324,7 @@ class EnumConstantContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitEnumConstant(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -20367,7 +20367,7 @@ class EnumConstantModifierContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitEnumConstantModifier(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -20421,7 +20421,7 @@ class EnumBodyDeclarationsContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitEnumBodyDeclarations(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -20468,7 +20468,7 @@ class InterfaceDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitInterfaceDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -20538,7 +20538,7 @@ class NormalInterfaceDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitNormalInterfaceDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -20605,7 +20605,7 @@ class InterfaceModifierContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitInterfaceModifier(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -20652,7 +20652,7 @@ class ExtendsInterfacesContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitExtendsInterfaces(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -20710,7 +20710,7 @@ class InterfaceBodyContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitInterfaceBody(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -20769,7 +20769,7 @@ class InterfaceMemberDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitInterfaceMemberDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -20831,7 +20831,7 @@ class ConstantDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitConstantDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -20886,7 +20886,7 @@ class ConstantModifierContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitConstantModifier(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -20944,7 +20944,7 @@ class InterfaceMethodDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitInterfaceMethodDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -21011,7 +21011,7 @@ class InterfaceMethodModifierContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitInterfaceMethodModifier(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -21077,7 +21077,7 @@ class AnnotationTypeDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitAnnotationTypeDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -21135,7 +21135,7 @@ class AnnotationTypeBodyContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitAnnotationTypeBody(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -21194,7 +21194,7 @@ class AnnotationTypeMemberDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitAnnotationTypeMemberDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -21272,7 +21272,7 @@ class AnnotationTypeElementDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitAnnotationTypeElementDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -21323,7 +21323,7 @@ class AnnotationTypeElementModifierContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitAnnotationTypeElementModifier(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -21370,7 +21370,7 @@ class DefaultValueContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitDefaultValue(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -21421,7 +21421,7 @@ class AnnotationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitAnnotation(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -21480,7 +21480,7 @@ class NormalAnnotationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitNormalAnnotation(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -21542,7 +21542,7 @@ class ElementValuePairListContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitElementValuePairList(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -21593,7 +21593,7 @@ class ElementValuePairContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitElementValuePair(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -21644,7 +21644,7 @@ class ElementValueContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitElementValue(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -21699,7 +21699,7 @@ class ElementValueArrayInitializerContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitElementValueArrayInitializer(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -21761,7 +21761,7 @@ class ElementValueListContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitElementValueList(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -21808,7 +21808,7 @@ class MarkerAnnotationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitMarkerAnnotation(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -21867,7 +21867,7 @@ class SingleElementAnnotationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitSingleElementAnnotation(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -21922,7 +21922,7 @@ class ArrayInitializerContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitArrayInitializer(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -21984,7 +21984,7 @@ class VariableInitializerListContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitVariableInitializerList(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -22035,7 +22035,7 @@ class BlockContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitBlock(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -22085,7 +22085,7 @@ class BlockStatementsContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitBlockStatements(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -22136,7 +22136,7 @@ class BlockStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitBlockStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -22183,7 +22183,7 @@ class LocalVariableDeclarationStatementContext extends antlr4.ParserRuleContext 
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitLocalVariableDeclarationStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -22241,7 +22241,7 @@ class LocalVariableDeclarationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitLocalVariableDeclaration(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -22304,7 +22304,7 @@ class StatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -22363,7 +22363,7 @@ class StatementNoShortIfContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitStatementNoShortIf(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -22450,7 +22450,7 @@ class StatementWithoutTrailingSubstatementContext extends antlr4.ParserRuleConte
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitStatementWithoutTrailingSubstatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -22493,7 +22493,7 @@ class EmptyStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitEmptyStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -22544,7 +22544,7 @@ class LabeledStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitLabeledStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -22595,7 +22595,7 @@ class LabeledStatementNoShortIfContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitLabeledStatementNoShortIf(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -22642,7 +22642,7 @@ class ExpressionStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitExpressionStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -22709,7 +22709,7 @@ class StatementExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitStatementExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -22768,7 +22768,7 @@ class IfThenStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitIfThenStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -22835,7 +22835,7 @@ class IfThenElseStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitIfThenElseStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -22905,7 +22905,7 @@ class IfThenElseStatementNoShortIfContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitIfThenElseStatementNoShortIf(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -22967,7 +22967,7 @@ class AssertStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitAssertStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -23026,7 +23026,7 @@ class SwitchStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitSwitchStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -23095,7 +23095,7 @@ class SwitchBlockContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitSwitchBlock(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -23142,7 +23142,7 @@ class SwitchBlockStatementGroupContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitSwitchBlockStatementGroup(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -23192,7 +23192,7 @@ class SwitchLabelsContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitSwitchLabels(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -23251,7 +23251,7 @@ class SwitchLabelContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitSwitchLabel(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -23294,7 +23294,7 @@ class EnumConstantNameContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitEnumConstantName(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -23353,7 +23353,7 @@ class WhileStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitWhileStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -23412,7 +23412,7 @@ class WhileStatementNoShortIfContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitWhileStatementNoShortIf(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -23479,7 +23479,7 @@ class DoStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitDoStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -23526,7 +23526,7 @@ class ForStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitForStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -23573,7 +23573,7 @@ class ForStatementNoShortIfContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitForStatementNoShortIf(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -23652,7 +23652,7 @@ class BasicForStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitBasicForStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -23731,7 +23731,7 @@ class BasicForStatementNoShortIfContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitBasicForStatementNoShortIf(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -23778,7 +23778,7 @@ class ForInitContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitForInit(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -23821,7 +23821,7 @@ class ForUpdateContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitForUpdate(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -23883,7 +23883,7 @@ class StatementExpressionListContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitStatementExpressionList(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -23965,7 +23965,7 @@ class EnhancedForStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitEnhancedForStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -24047,7 +24047,7 @@ class EnhancedForStatementNoShortIfContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitEnhancedForStatementNoShortIf(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -24098,7 +24098,7 @@ class BreakStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitBreakStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -24149,7 +24149,7 @@ class ContinueStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitContinueStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -24200,7 +24200,7 @@ class ReturnStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitReturnStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -24251,7 +24251,7 @@ class ThrowStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitThrowStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -24310,7 +24310,7 @@ class SynchronizedStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitSynchronizedStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -24369,7 +24369,7 @@ class TryStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitTryStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -24419,7 +24419,7 @@ class CatchesContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitCatches(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -24478,7 +24478,7 @@ class CatchClauseContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitCatchClause(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -24536,7 +24536,7 @@ class CatchFormalParameterContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitCatchFormalParameter(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -24602,7 +24602,7 @@ class CatchTypeContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitCatchType(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -24649,7 +24649,7 @@ class Finally_Context extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitFinally_(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -24708,7 +24708,7 @@ class TryWithResourcesStatementContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitTryWithResourcesStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -24763,7 +24763,7 @@ class ResourceSpecificationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitResourceSpecification(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -24825,7 +24825,7 @@ class ResourceListContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitResourceList(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -24895,7 +24895,7 @@ class ResourceContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitResource(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -24942,7 +24942,7 @@ class VariableAccessContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitVariableAccess(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -25000,7 +25000,7 @@ class PrimaryContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPrimary(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -25091,7 +25091,7 @@ class PrimaryNoNewArrayContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPrimaryNoNewArray(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -25131,7 +25131,7 @@ class PrimaryNoNewArray_lf_arrayAccessContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPrimaryNoNewArray_lf_arrayAccess(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -25246,7 +25246,7 @@ class PrimaryNoNewArray_lfno_arrayAccessContext extends antlr4.ParserRuleContext
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPrimaryNoNewArray_lfno_arrayAccess(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -25305,7 +25305,7 @@ class PrimaryNoNewArray_lf_primaryContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPrimaryNoNewArray_lf_primary(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -25345,7 +25345,7 @@ class PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext extends antl
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -25400,7 +25400,7 @@ class PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primaryContext extends an
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -25523,7 +25523,7 @@ class PrimaryNoNewArray_lfno_primaryContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPrimaryNoNewArray_lfno_primary(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -25563,7 +25563,7 @@ class PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext extends 
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -25682,7 +25682,7 @@ class PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext extend
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -25769,7 +25769,7 @@ class ClassLiteralContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitClassLiteral(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -25878,7 +25878,7 @@ class ClassInstanceCreationExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitClassInstanceCreationExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -25964,7 +25964,7 @@ class ClassInstanceCreationExpression_lf_primaryContext extends antlr4.ParserRul
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitClassInstanceCreationExpression_lf_primary(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -26069,7 +26069,7 @@ class ClassInstanceCreationExpression_lfno_primaryContext extends antlr4.ParserR
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitClassInstanceCreationExpression_lfno_primary(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -26120,7 +26120,7 @@ class TypeArgumentsOrDiamondContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitTypeArgumentsOrDiamond(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -26187,7 +26187,7 @@ class FieldAccessContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitFieldAccess(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -26234,7 +26234,7 @@ class FieldAccess_lf_primaryContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitFieldAccess_lf_primary(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -26297,7 +26297,7 @@ class FieldAccess_lfno_primaryContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitFieldAccess_lfno_primary(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -26390,7 +26390,7 @@ class ArrayAccessContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitArrayAccess(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -26479,7 +26479,7 @@ class ArrayAccess_lf_primaryContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitArrayAccess_lf_primary(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -26572,7 +26572,7 @@ class ArrayAccess_lfno_primaryContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitArrayAccess_lfno_primary(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -26663,7 +26663,7 @@ class MethodInvocationContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitMethodInvocation(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -26726,7 +26726,7 @@ class MethodInvocation_lf_primaryContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitMethodInvocation_lf_primary(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -26813,7 +26813,7 @@ class MethodInvocation_lfno_primaryContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitMethodInvocation_lfno_primary(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -26875,7 +26875,7 @@ class ArgumentListContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitArgumentList(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -26962,7 +26962,7 @@ class MethodReferenceContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitMethodReference(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -27013,7 +27013,7 @@ class MethodReference_lf_primaryContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitMethodReference_lf_primary(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -27096,7 +27096,7 @@ class MethodReference_lfno_primaryContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitMethodReference_lfno_primary(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -27159,7 +27159,7 @@ class ArrayCreationExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitArrayCreationExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -27209,7 +27209,7 @@ class DimExprsContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitDimExprs(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -27271,7 +27271,7 @@ class DimExprContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitDimExpr(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -27314,7 +27314,7 @@ class ConstantExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitConstantExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -27361,7 +27361,7 @@ class ExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -27412,7 +27412,7 @@ class LambdaExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitLambdaExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -27471,7 +27471,7 @@ class LambdaParametersContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitLambdaParameters(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -27533,7 +27533,7 @@ class InferredFormalParameterListContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitInferredFormalParameterList(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -27580,7 +27580,7 @@ class LambdaBodyContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitLambdaBody(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -27627,7 +27627,7 @@ class AssignmentExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitAssignmentExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -27678,7 +27678,7 @@ class AssignmentContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitAssignment(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -27729,7 +27729,7 @@ class LeftHandSideContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitLeftHandSide(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -27816,7 +27816,7 @@ class AssignmentOperatorContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitAssignmentOperator(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -27879,7 +27879,7 @@ class ConditionalExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitConditionalExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -27930,7 +27930,7 @@ class ConditionalOrExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitConditionalOrExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -27981,7 +27981,7 @@ class ConditionalAndExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitConditionalAndExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -28032,7 +28032,7 @@ class InclusiveOrExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitInclusiveOrExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -28083,7 +28083,7 @@ class ExclusiveOrExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitExclusiveOrExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -28134,7 +28134,7 @@ class AndExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitAndExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -28189,7 +28189,7 @@ class EqualityExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitEqualityExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -28260,7 +28260,7 @@ class RelationalExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitRelationalExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -28331,7 +28331,7 @@ class ShiftExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitShiftExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -28386,7 +28386,7 @@ class AdditiveExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitAdditiveExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -28445,7 +28445,7 @@ class MultiplicativeExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitMultiplicativeExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -28508,7 +28508,7 @@ class UnaryExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitUnaryExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -28555,7 +28555,7 @@ class PreIncrementExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPreIncrementExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -28602,7 +28602,7 @@ class PreDecrementExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPreDecrementExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -28661,7 +28661,7 @@ class UnaryExpressionNotPlusMinusContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitUnaryExpressionNotPlusMinus(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -28730,7 +28730,7 @@ class PostfixExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPostfixExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -28777,7 +28777,7 @@ class PostIncrementExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPostIncrementExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -28820,7 +28820,7 @@ class PostIncrementExpression_lf_postfixExpressionContext extends antlr4.ParserR
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPostIncrementExpression_lf_postfixExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -28867,7 +28867,7 @@ class PostDecrementExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPostDecrementExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -28910,7 +28910,7 @@ class PostDecrementExpression_lf_postfixExpressionContext extends antlr4.ParserR
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitPostDecrementExpression_lf_postfixExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -28988,7 +28988,7 @@ class CastExpressionContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitCastExpression(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -29031,7 +29031,7 @@ class IdentifierContext extends antlr4.ParserRuleContext {
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof Java9Visitor ) {
+	    if ( visitor instanceof Java9Visitor.Java9Visitor ) {
 	        return visitor.visitIdentifier(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -29288,4 +29288,7 @@ Java9Parser.PostIncrementExpression_lf_postfixExpressionContext = PostIncrementE
 Java9Parser.PostDecrementExpressionContext = PostDecrementExpressionContext; 
 Java9Parser.PostDecrementExpression_lf_postfixExpressionContext = PostDecrementExpression_lf_postfixExpressionContext; 
 Java9Parser.CastExpressionContext = CastExpressionContext; 
-Java9Parser.IdentifierContext = IdentifierContext; 
+Java9Parser.IdentifierContext = IdentifierContext;
+
+
+module.exports = { Java9Parser: Java9Parser,};

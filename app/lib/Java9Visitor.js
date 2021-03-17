@@ -1,13 +1,12 @@
 // Generated from Java9.g4 by ANTLR 4.9.1
 // jshint ignore: start
-import antlr4 from 'antlr4';
+const antlr4 = require('antlr4');
 
 // This class defines a complete generic visitor for a parse tree produced by Java9Parser.
-
-export default class Java9Visitor extends antlr4.tree.ParseTreeVisitor {
-
+ class Java9Visitor extends antlr4.tree.ParseTreeVisitor {
 	// Visit a parse tree produced by Java9Parser#literal.
 	visitLiteral(ctx) {
+	  console.log("Number: " + ctx.getText())
 	  return this.visitChildren(ctx);
 	}
 
@@ -1472,9 +1471,11 @@ export default class Java9Visitor extends antlr4.tree.ParseTreeVisitor {
 
 	// Visit a parse tree produced by Java9Parser#identifier.
 	visitIdentifier(ctx) {
+	  console.log("id :" + ctx.getText())
 	  return this.visitChildren(ctx);
 	}
-
-
-
 }
+
+module.exports = {
+	Java9Visitor: Java9Visitor,
+};

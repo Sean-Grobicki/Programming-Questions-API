@@ -9,6 +9,7 @@
   "author": "Sean Grobicki",
   "license": "ISC",
   "dependencies": {
+    "antlr4": "^4.9.2",
     "cors": "^2.8.5",
     "express": "^4.17.1"
   }

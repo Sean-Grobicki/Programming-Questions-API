@@ -1,6 +1,18 @@
 const Helper = require('./helper.js').Helper;
 const helperInstance = new Helper();
 
+const getRandomTemplate = () =>
+{
+    var program = getFile();
+    runVisitor(program);
+    helperInstance.getVariables().forEach(variable => {
+        program = program.split(variable.getOldName()).join(variable.getNewName());
+        //Try and replace the variable assignment with the correct number using regex.
+        program = program.split(variable.getType() + ' ' + variable.getNewName() + ' = *([0-9]) ;').join(variable.getType() + ' ' + variable.getNewName() + ' = ' + variable.getValue());
+    });
+    return program;
+}
+
 const getFile = () =>
 {
     const fs = require('fs');
@@ -18,14 +30,13 @@ const getRandomInt = (max) =>
   return Math.floor(Math.random() * Math.floor(max)) + 1;
 }
 
-const runVisitor = () =>
+const runVisitor = (input) =>
 {
   const antlr4 = require('antlr4');
   //may need to include .js in require.
   const JavaLexer = require('./Java9Lexer.js');
   const JavaParser = require('./Java9Parser.js');
 
-  const input = getFile();
   const chars = new antlr4.InputStream(input);
   const lexer = new JavaLexer.Java9Lexer(chars);
   const tokens = new antlr4.CommonTokenStream(lexer);
@@ -44,9 +55,7 @@ class Visitor {
     if(ctx.localVariableDeclaration  != null)
     {
       const type = ctx.localVariableDeclaration().unannType().unannPrimitiveType().numericType().integralType().getText();
-      console.log(type);
-      console.log(ctx.localVariableDeclaration().variableDeclaratorList());
-      const varName = ctx.localVariableDeclaration().variableDeclaratorList()[0].variableDeclaratorId().identifier().getText();
+      const varName = ctx.localVariableDeclaration().variableDeclaratorList().variableDeclarator()[0].variableDeclaratorId().identifier().getText();
       helperInstance.addVariable(varName,type);
     }
     if (ctx.children) {
@@ -63,8 +72,7 @@ class Visitor {
 
 module.exports = 
 {
-  getFile: getFile,
-  runVisitor: runVisitor,
+  getRandomTemplate: getRandomTemplate,
   randomInt: getRandomInt,
   helperInstance: helperInstance,
 }

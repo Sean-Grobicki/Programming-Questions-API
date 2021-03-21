@@ -1,0 +1,210 @@
+openapi: 3.0.2
+info:
+  title: Programming Questions API
+  version: '1.0'
+  description: >-
+    This is an API that will generate randomised programming questions of three
+    types either being a grammar question, programming question based on a flow
+    chart or a tracing question based on a trace table. This API will return the
+    question with information for answers and feedback in a JSON format so you
+    can implement randomised programming questions.
+  contact:
+    name: Programming Questions API
+    email: seangrobicki@gmail.com
+servers:
+  - url: 'https://api.openweathermap.org/data/2.5/'
+paths:
+  /grammar:
+    get:
+      tags:
+        - Grammar
+      summary: 'Get a grammar question'
+      description: >-
+        Access a grammar question which is a program with 5 errors within
+        it which the user has to correctly work out. 
+      operationId: GrammarQuestion
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Grammar'
+        '404':
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/404'
+  /programming:
+    get:
+      tags: 
+        - Programming
+      summary: 'Get a programming question'
+      description: >-
+        Access  a programming question which is a
+        flowchart which the user has to program off. 
+      operationId: ProgrammingQuestion
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Programming'
+        404:
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/404'
+    post:
+      tags:
+        - Programming
+      summary: 'Check answer of Programming Question'
+      description: Check the answer of the programming question generated
+      requestBody:
+        $ref: '#/components/requestBodies/CheckAnswer'
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/AnswerCode'
+            
+
+  /trace:
+    get:
+      tags: 
+          - Trace
+      summary: 'Get a trace question'
+      description: >-
+        Access a trace question which is
+        an empty trace table which the user will have to fill in.
+      operationId: TraceQuestion
+
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trace'
+        404:
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/404'
+components:
+  requestBodies:
+    CheckAnswer:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Programming'
+  schemas:
+    404:
+      title: Question not found
+      type: string
+      example: Not found
+    Grammar:
+      title: Successful Response
+      type: object
+      properties:
+        questionCode:
+          $ref: '#/components/schemas/QuestionCode'
+        answerCode:
+          $ref: '#/components/schemas/AnswerCode'
+        Errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+    QuestionCode:
+      title: Question Code
+      type: string
+    AnswerCode:
+      title: Answer Code
+      type: string
+    Error:
+      title: Error
+      type: object
+      properties:
+        lineNum:
+          title: Line Number
+          type: integer
+        linePos:
+          title: Line Position
+          type: integer
+        description:
+          title: Description of Error
+          type: string
+        errorNumber:
+          title: Unique identifer for error
+          type: integer
+    Programming:
+      title: Successful Response
+      type: object
+      properties:
+        questionCode:
+          $ref: '#/components/schemas/QuestionCode'
+        flowChart:
+          title: Flow Chart
+          type: array
+          items:
+            $ref: '#/components/schemas/Node'
+    Node:
+      title: Node
+      type: object
+      properties:
+        nodeText:
+          title: Node Text
+          type: string
+          example: If X < 5
+        condition:
+          $ref: '#/components/schemas/Condition'
+        nodeNumber:
+          title: Node Number
+          type: integer
+          example: 1
+    Condition:
+      title: Condition
+      type: object
+      properties:
+        tNodeNumber:
+          title: "True Node Number"
+          type: integer
+          example: 2
+        fNodeNumber:
+          title: "False Node Number"
+          type: integer
+          example: 3
+    Trace:
+      title: Successful Response
+      type: object
+      properties:
+        questionCode:
+          $ref: '#/components/schemas/QuestionCode'
+        table:
+          $ref: '#/components/schemas/Table'
+    Table:
+      title: Trace Table
+      type: array
+      items:
+          $ref: '#/components/schemas/Variable'
+    Variable:
+      title: Variable
+      type: array
+      items:
+        $ref: '#/components/schemas/StagesValues'
+    StagesValues:
+      title: Stages Values
+      type: integer
+tags:
+  - name: Grammar
+    description: Gets the information required for a grammar question
+  - name: Programming
+    description: Gets the information required to for a programming question and checks answer
+  - name: Trace
+    description: Gets the information required for a trace question

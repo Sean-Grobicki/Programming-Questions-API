@@ -32,6 +32,11 @@ class Helper
             }
         });
     }
+
+    getVariables()
+    {
+        return this.variables;
+    }
 }
 
 
@@ -58,6 +63,11 @@ class Variable
     getValue()
     {
         return this.value;
+    }
+
+    getType()
+    {
+        return this.type;
     }
 
     generateValue()

@@ -1,13 +1,14 @@
-const { Variable } = require('../lib/helper.js');
+const getRandomTemplate = require('../lib/templateRandomiser.js').getRandomTemplate;
 
 const getGrammarQuestion = (req,res) =>
 {
-    const tr = require('../lib/templateRandomiser.js');
-    const vari = require('../lib/helper.js').Variable;
-    const inst = new Variable("number1","int");
-    const out = tr.runVisitor();
-    console.log("Out = "+ out);
-    return res.send({"msg": out, "name": inst.getNewName(), "value": inst.getValue()});
+    const answerCode = getRandomTemplate();
+    console.log("Out = "+ template);
+    return res.send({
+    "questionCode": "Add errors to original template",
+    "answerCode": answerCode,
+    "Errors": "Add all the occurring errors.",
+    });
 }
 
 

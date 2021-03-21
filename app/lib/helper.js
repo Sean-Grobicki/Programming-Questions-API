@@ -9,15 +9,26 @@ class Helper
 
     addVariable(oldName,type)
     {
-        variables.push(new Variable(oldName,type));
+        this.variables.push(new Variable(oldName,type));
     }
 
     getVariable(oldName)
     {
-        variables.forEach(variable => {
+        this.variables.forEach(variable => {
             if(variable.getOldName() === oldName)
             {
                 return variable;
+            }
+        });
+        return null;
+    }
+
+    isSameName(name)
+    {
+        this.variables.forEach(variable => {
+            if(variable.getNewName() === name)
+            {
+                return true;
             }
         });
     }
@@ -30,8 +41,8 @@ class Variable
     {
         this.oldName = oldName;
         this.type = type;
-        this.newName = this.generateName();
-        this.value = this.generateValue();
+        this.newName = getVarName();
+        this.generateValue();
     }
 
     getOldName()
@@ -49,16 +60,39 @@ class Variable
         return this.value;
     }
 
-    generateName()
-    {
-        //Need to check it's not a keyword and isnt the same as any other variables.
-    }
-
     generateValue()
     {
-        //Generate only for integers random numbers between 1 and 10.
+        if(this.type === "int")
+        {
+            this.value = getRandomInt(10);
+        }
     }
 
 }
 
-module.exports = { Helper: Helper, };
+
+
+const getVarName = () => 
+{
+    //const otherVarNames = 
+    const varNames = require('./varNames.js').varNames;
+    const varName = varNames[getRandomInt(varNames.length-1)];
+    //Check varName isn't the same as any other variables.
+    const helperInstance = require('./templateRandomiser.js').helperInstance;
+    if (!helperInstance.isSameName(varName))
+    {
+        return varName;
+    }
+    else
+    {
+        return getVarName();
+    }
+}
+
+const getRandomInt = (max) =>
+{
+    const getRandomInt = require('./templateRandomiser.js').randomInt;
+    return getRandomInt(max);
+} 
+
+module.exports = { Helper: Helper, Variable: Variable};

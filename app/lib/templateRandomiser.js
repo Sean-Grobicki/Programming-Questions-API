@@ -1,8 +1,12 @@
+const Helper = require('./helper.js').Helper;
+const helperInstance = new Helper();
+
 const getFile = () =>
 {
     const fs = require('fs');
     //add way to get a random template from 
-    const filename = './app/templates/template'+ getRandomInt(5) + '.java';
+    //const filename = './app/templates/template'+ getRandomInt(5) + '.java';
+    const filename = './app/templates/template1.java';
     const file = fs.readFileSync(filename,'utf-8');
     return file;
 }
@@ -37,7 +41,14 @@ class Visitor {
     if (!ctx) {
       return;
     }
-
+    if(ctx.localVariableDeclaration  != null)
+    {
+      const type = ctx.localVariableDeclaration().unannType().unannPrimitiveType().numericType().integralType().getText();
+      console.log(type);
+      console.log(ctx.localVariableDeclaration().variableDeclaratorList());
+      const varName = ctx.localVariableDeclaration().variableDeclaratorList()[0].variableDeclaratorId().identifier().getText();
+      helperInstance.addVariable(varName,type);
+    }
     if (ctx.children) {
       return ctx.children.map(child => {
         if (child.children && child.children.length != 0) {
@@ -50,9 +61,10 @@ class Visitor {
   }
 }
 
-
 module.exports = 
 {
   getFile: getFile,
   runVisitor: runVisitor,
+  randomInt: getRandomInt,
+  helperInstance: helperInstance,
 }

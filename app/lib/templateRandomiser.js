@@ -1,4 +1,4 @@
-const Helper = require('./helper.js').Helper;
+const Helper = require('./templateHelper.js').Helper;
 const helperInstance = new Helper();
 
 const getRandomTemplate = () =>
@@ -34,7 +34,6 @@ const getRandomInt = (max) =>
 const runVisitor = (input) =>
 {
   const antlr4 = require('antlr4');
-  //may need to include .js in require.
   const JavaLexer = require('./antlrGenerated/Java9Lexer.js');
   const JavaParser = require('./antlrGenerated/Java9Parser.js');
 

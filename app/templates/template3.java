@@ -7,7 +7,7 @@ public class Template3 {
         int total = 0;
         for(int index=0; index < number2; index++)
         {
-            total += number1 + i;
+            total += number1 + index;
         }
         System.out.println(total);
     }

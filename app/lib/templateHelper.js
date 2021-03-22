@@ -1,6 +1,6 @@
 // In the lib file any helper class files will go but the controller is like the main when each request is called.
 
-class Helper
+class TemplateHelper
 {
     constructor()
     {
@@ -105,4 +105,4 @@ const getRandomInt = (max) =>
     return getRandomInt(max);
 } 
 
-module.exports = { Helper: Helper, Variable: Variable};
+module.exports = { Helper: TemplateHelper, Variable: Variable};

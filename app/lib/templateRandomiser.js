@@ -8,7 +8,10 @@ const getRandomTemplate = () =>
     helperInstance.getVariables().forEach(variable => {
         program = program.split(variable.getOldName()).join(variable.getNewName());
         //Try and replace the variable assignment with the correct number using regex.
-        program = program.split(variable.getType() + ' ' + variable.getNewName() + ' = *([0-9]) ;').join(variable.getType() + ' ' + variable.getNewName() + ' = ' + variable.getValue());
+        const varAssign =    variable.getType() + ' ' + variable.getNewName() + ' = ';
+        const regex = new RegExp(varAssign + "[0-9]+");
+        program = program.split(regex);
+        program = program.join(varAssign + variable.getValue());
     });
     return program;
 }
@@ -17,12 +20,10 @@ const getFile = () =>
 {
     const fs = require('fs');
     //add way to get a random template from 
-    //const filename = './app/templates/template'+ getRandomInt(5) + '.java';
-    const filename = './app/templates/template1.java';
+    const filename = './app/templates/template'+ getRandomInt(5) + '.java';
     const file = fs.readFileSync(filename,'utf-8');
     return file;
 }
-
 
 //Gets number from 1 to max inclusive. 
 const getRandomInt = (max) =>
@@ -34,8 +35,8 @@ const runVisitor = (input) =>
 {
   const antlr4 = require('antlr4');
   //may need to include .js in require.
-  const JavaLexer = require('./Java9Lexer.js');
-  const JavaParser = require('./Java9Parser.js');
+  const JavaLexer = require('./antlrGenerated/Java9Lexer.js');
+  const JavaParser = require('./antlrGenerated/Java9Parser.js');
 
   const chars = new antlr4.InputStream(input);
   const lexer = new JavaLexer.Java9Lexer(chars);
@@ -54,7 +55,17 @@ class Visitor {
     }
     if(ctx.localVariableDeclaration  != null)
     {
-      const type = ctx.localVariableDeclaration().unannType().unannPrimitiveType().numericType().integralType().getText();
+      var type = "";
+      if(ctx.localVariableDeclaration().unannType().unannPrimitiveType() != null)
+      {
+        type = ctx.localVariableDeclaration().unannType().unannPrimitiveType().numericType().integralType().getText();
+      }
+      else
+      {
+        //unannClassType_Ifno_unannClassOrInterfaceType()
+        type = ctx.localVariableDeclaration().unannType().unannReferenceType().unannClassOrInterfaceType().getText();
+      }
+
       const varName = ctx.localVariableDeclaration().variableDeclaratorList().variableDeclarator()[0].variableDeclaratorId().identifier().getText();
       helperInstance.addVariable(varName,type);
     }

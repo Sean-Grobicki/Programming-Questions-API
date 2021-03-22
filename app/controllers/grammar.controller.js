@@ -3,7 +3,7 @@ const getRandomTemplate = require('../lib/templateRandomiser.js').getRandomTempl
 const getGrammarQuestion = (req,res) =>
 {
     const answerCode = getRandomTemplate();
-    console.log("Out = "+ template);
+    console.log("Out = "+ answerCode);
     return res.send({
     "questionCode": "Add errors to original template",
     "answerCode": answerCode,

@@ -1,44 +1,60 @@
 const getRandomTemplate = require('../lib/templateRandomiser.js').getRandomTemplate;
-const grammarHelper = require('../lib/grammarHelper');
+const grammarVisitor = require('../lib/grammar/grammarVisitor.js');
 
 const getGrammarQuestion = (req,res) =>
 {
     const answerCode = getRandomTemplate();
     const errors = generateErrors(answerCode);
-    const questionCode = generateQuestionCode(errors);
+    const questionCode = generateQuestionCode(errors,answerCode);
     return res.send({
-    "questionCode": "Add errors to original template",
+    "questionCode": questionCode,
     "answerCode": answerCode,
-    "Errors": "Add all the occurring errors.",
+    "Errors": formatJSONErrList(errors),
     });
 }
 
 const generateErrors = (template) =>
 {
-    runVisitor(template);
-    const helper = grammarHelper.helperInstance;
-    helper.removeInitialisers();
-    console.log(helper.getAllErrors());
-    const errList = helper.selectErrors();
+    grammarVisitor.runVisitor(template);
+    return grammarVisitor.getSelectedErrors(5);
 }
 
-const runVisitor = (input) =>
+const generateQuestionCode = (errors,template) =>
 {
-  const antlr4 = require('antlr4');
-  const JavaLexer = require('../lib/antlrGenerated/Java9Lexer.js')
-  const JavaParser = require('../lib/antlrGenerated/Java9Parser.js');
-  const chars = new antlr4.InputStream(input);
-  const lexer = new JavaLexer.Java9Lexer(chars);
-  const tokens = new antlr4.CommonTokenStream(lexer);
-  const parser = new JavaParser.Java9Parser(tokens);
-  parser.buildParseTrees = true;
-  const tree = parser.compilationUnit();
-  tree.accept(new grammarHelper.Visitor());
+    //Split the template so it is split into lines.
+    const templateLines = template.split("\r\n");
+    for (let index = 0; index < templateLines.length; index++) {
+        const element = templateLines[index];
+        //console.log(index + ": " + element);
+    }
+    errors.forEach(error => {
+        // Got to the line number of that error.
+        const lineNum = error.errorLineNum - 1;
+        const lineString = templateLines[lineNum];
+        console.log("Original: "+ lineString + " Error:" + error.missingValue + " ErrLineNum: " + error.errorLineNum);
+        // Use .replace to replace the missing value with the error value.
+        templateLines[lineNum] = lineString.replace(error.missingValue,error.errorValue);
+        console.log("Result: " + templateLines[lineNum] + " TempLineNum: " + lineNum);
+    });
+    //Join back the template and return it.
+    const questionCode = templateLines.join("\r\n");
+    return questionCode;
 }
 
-const generateQuestionCode = (errors) =>
+const formatJSONErrList = (errors) =>
 {
-
+    var JSONArray = [];
+    console.log(errors);
+    errors.forEach(error => {
+        
+        const JSONObject = {
+            "lineNum": error.errorLineNum,
+            "linePos": error.errorLinePos, 
+            "description": error.getDescription(),
+        }
+        JSONArray.push(JSONObject);
+    });
+    return JSONArray;
 }
 
 module.exports = 

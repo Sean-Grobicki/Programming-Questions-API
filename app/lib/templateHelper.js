@@ -1,4 +1,6 @@
-// In the lib file any helper class files will go but the controller is like the main when each request is called.
+const getRandomInt = (max) => { 
+    return require('./templateRandomiser.js').randomInt(max); 
+};
 
 class TemplateHelper
 {
@@ -99,10 +101,5 @@ const getVarName = () =>
     }
 }
 
-const getRandomInt = (max) =>
-{
-    const getRandomInt = require('./templateRandomiser.js').randomInt;
-    return getRandomInt(max);
-} 
 
 module.exports = { Helper: TemplateHelper, Variable: Variable};

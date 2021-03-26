@@ -117,7 +117,7 @@ components:
           $ref: '#/components/schemas/QuestionCode'
         answerCode:
           $ref: '#/components/schemas/AnswerCode'
-        Errors:
+        errors:
           type: array
           items:
             $ref: '#/components/schemas/Error'
@@ -131,18 +131,25 @@ components:
       title: Error
       type: object
       properties:
-        lineNum:
+        lineNumber:
           title: Line Number
           type: integer
-        linePos:
+          example: 3
+        linePosition:
           title: Line Position
           type: integer
+          example: 5
         description:
           title: Description of Error
           type: string
-        errorNumber:
-          title: Unique identifer for error
-          type: integer
+        errorValue:
+          title: Value that has been inserted
+          type: string
+          example: "Integer"
+        missingValue:
+          title: Value that has been removed
+          type: string
+          example: "int"
     Programming:
       title: Successful Response
       type: object
@@ -162,22 +169,22 @@ components:
           title: Node Text
           type: string
           example: If X < 5
-        condition:
-          $ref: '#/components/schemas/Condition'
-        nodeNumber:
-          title: Node Number
+        nodeID:
+          title: Node ID
           type: integer
           example: 1
+        condition:
+          $ref: '#/components/schemas/Condition'
     Condition:
       title: Condition
       type: object
       properties:
-        tNodeNumber:
-          title: "True Node Number"
+        trueNodeID:
+          title: "True Node ID"
           type: integer
           example: 2
-        fNodeNumber:
-          title: "False Node Number"
+        falseNodeID:
+          title: "False Node ID"
           type: integer
           example: 3
     Trace:
@@ -195,12 +202,28 @@ components:
           $ref: '#/components/schemas/Variable'
     Variable:
       title: Variable
-      type: array
-      items:
-        $ref: '#/components/schemas/StagesValues'
-    StagesValues:
-      title: Stages Values
-      type: integer
+      type: object
+      properties:
+        variableName:
+          type: string
+          title: Name of the variable
+        variableType:
+          type: string
+          example: "int"
+        variableStages:
+          $ref: '#/components/schemas/StageValues'
+    StageValues:
+      title: Stage Values
+      type: object
+      properties:
+        stageID:
+          title: id for that variable at this stage.
+          type: integer
+          example: 1
+        stageValue:
+          title: value for that variable at this stage.
+          type: integer
+          example: 5
 tags:
   - name: Grammar
     description: Gets the information required for a grammar question

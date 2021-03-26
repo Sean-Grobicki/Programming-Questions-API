@@ -9,7 +9,7 @@ const getGrammarQuestion = (req,res) =>
     return res.send({
     "questionCode": questionCode,
     "answerCode": answerCode,
-    "Errors": formatJSONErrList(errors),
+    "errors": formatJSONErrList(errors),
     });
 }
 
@@ -48,9 +48,11 @@ const formatJSONErrList = (errors) =>
     errors.forEach(error => {
         
         const JSONObject = {
-            "lineNum": error.errorLineNum,
-            "linePos": error.errorLinePos, 
+            "lineNumber": error.errorLineNum,
+            "linePosition": error.errorLinePos, 
             "description": error.getDescription(),
+            "errorValue": error.errorValue,
+            "missingValue": error.missingValue,
         }
         JSONArray.push(JSONObject);
     });

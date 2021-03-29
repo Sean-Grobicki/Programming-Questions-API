@@ -78,21 +78,52 @@ class FlowChart
         else if (type === "IfElse")
         {
             const node = new ConditionalNode(this.currrentNode,this.generateComparison(this.getRandomVariable()));
-            const trueNode = new ValueNode(this.currrentNode + 1, this.getRandomVariable(), this.generateRandomExpression() );
-            const falseNode = new ValueNode();
+            const trueNode = new ValueNode(this.currrentNode + 1, this.getRandomVariable(), this.generateRandomExpression());
+            const falseNode = new ValueNode(this.currrentNode + 2, this.getRandomVariable(), this.generateRandomExpression());
+            node.setChildren(trueNode.nodeID,falseNode.nodeID);
+            trueNode.setChild(this.currrentNode + 3);
+            falseNode.setChild(this.currrentNode + 3);
+            this.nodes.push(node);
+            this.nodes.push(trueNode);
+            this.nodes.push(falseNode);
             this.currrentNode += 3;
         }
         else if (type === "If")
         {
-
+            const node = new ConditionalNode(this.currrentNode,this.generateComparison(this.getRandomVariable()));
+            const trueNode = new ValueNode(this.currrentNode + 1, this.getRandomVariable(), this.generateRandomExpression());
+            node.setChildren(trueNode.nodeID,this.currrentNode + 2);
+            trueNode.setChild(this.currrentNode + 2);
+            this.nodes.push(node);
+            this.nodes.push(trueNode);
+            this.currrentNode += 2;
         }
         else if (type === "For")
         {
-
+            const indexNode = new ValueNode(this.currrentNode,"index",0);
+            const condition = new ConditionalNode(this.currrentNode + 1,"index < " + getRandomInt(10));
+            const iterator = new ValueNode(this.currrentNode + 2,"index","index + 1");
+            const body = new ValueNode(this.currrentNode + 3, this.getRandomVariable(),this.generateRandomExpression());
+            condition.setChildren(iterator.nodeID,this.currrentNode + 4);
+            body.setChild(condition.nodeID);
+            this.nodes.push(indexNode);
+            this.nodes.push(condition);
+            this.nodes.push(iterator);
+            this.nodes.push(body);
+            this.currrentNode += 4;
         }
         else if (type === "While")
         {
-
+            // Need to stop going in unlimited while loops.
+            // So value manipulation needs to get towards the goal.
+            const variable = this.getRandomVariable();
+            const node = new ConditionalNode(this.currrentNode,variable + " > " + 0);
+            const trueNode = new ValueNode(this.currrentNode + 1,variable,variable + " - " + getRandomInt(10));
+            trueNode.setChild(node.nodeID);
+            node.setChildren(trueNode.nodeID,this.currrentNode + 2);
+            this.nodes.push(node);
+            this.nodes.push(trueNode);
+            this.currrentNode += 2;
         }
     }
 
@@ -104,7 +135,7 @@ class FlowChart
     }
 
 
-    generateRandomExpression(variableName)
+    generateRandomExpression()
     {
         const operators =  [' + ', ' - ' , ' * ' , ' / ' , ' % '];
         const randOperator = operators[getRandomInt(operators.length)-1];
@@ -123,17 +154,6 @@ const getRandomInt = (max) =>
   return Math.floor(Math.random() * Math.floor(max)) + 1;
 }
 
-
-const createForSequence = () =>
-{
-
-}
-
-
-const createWhileSequence = () =>
-{
-
-}
 
 
 class Node
@@ -175,9 +195,9 @@ class OutputNode extends Node
 
 class ConditionalNode extends Node
 {
-    constructor(nodeID,expression)
+    constructor(nodeID,comparator)
     {
-        super(nodeID,"If " + expression);
+        super(nodeID,"If " + comparator);
     }
 
     setChildren(trueNodeID,falseNodeID)

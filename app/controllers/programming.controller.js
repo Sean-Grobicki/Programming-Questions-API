@@ -11,6 +11,7 @@ const getProgrammingQuestion = (req,res) =>
 
 const markProgrammingQuestion = (req,res) =>
 {
+    // Antlr visitor could be used to see if the correct methods have been used to create theflowchart if we pass through the sequence order.
     return res.send({"msg": "programming post is working"});
 }
 

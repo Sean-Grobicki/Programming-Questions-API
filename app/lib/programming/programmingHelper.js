@@ -14,10 +14,19 @@ const generateFlowChart = () =>
 {
     flowchart = new FlowChart(2);
     flowchart.addNode("Value");
+    flowchart.addNode("IfElse");
+    flowchart.addNode("If");
+    flowchart.addNode("Value");
+    flowchart.addNode("While");
     flowchart.outputVariables();
     console.log(flowchart.getAllNodes());
-    // This is where the flowchart is sequenced randomly. This can be done with the add node and the right type.
+    // 1 For or While
+    // 2 If or ElseIfs
+    // 2 Value Manipulations
+    // It should be randomly between the options and the order of these randomly chosen aswell.
 
+
+    // If we pass through the sequence order of the flowchart we may be able to mark without use of compiler.
 }
 
 module.exports = 

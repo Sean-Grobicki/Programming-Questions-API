@@ -31,7 +31,6 @@ const generateQuestionCode = (errors,template) =>
         // Got to the line number of that error.
         const lineNum = error.errorLineNum - 1;
         const lineString = templateLines[lineNum];
-        console.log("Original: "+ lineString + " Error:" + error.missingValue + " ErrLineNum: " + error.errorLineNum);
         // Use .replace to replace the missing value with the error value.
         templateLines[lineNum] = lineString.replace(error.missingValue,error.errorValue);
         console.log("Result: " + templateLines[lineNum] + " TempLineNum: " + lineNum);

@@ -44,7 +44,6 @@ class GrammarHelper
             const errIndex = random(errIDList.length) - 1;
             const errID = errIDList[errIndex];
             selectedErrorsIDList[index] = errID;
-            // Removes the error ID thats selected from the list. 
             errIDList = errIDList.filter((value,index) => {
                 return value !== errID;
             } );

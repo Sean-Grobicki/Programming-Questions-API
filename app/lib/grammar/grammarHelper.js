@@ -40,7 +40,7 @@ class GrammarHelper
         var selectedErrorsIDList = [];
         for (let index = 0; index < numberOfErrors; index++) 
         {
-            const random = require('../templateRandomiser.js').randomInt;
+            const random = require('../globalHelper.js').getRandomInt;
             const errIndex = random(errIDList.length) - 1;
             const errID = errIDList[errIndex];
             selectedErrorsIDList[index] = errID;

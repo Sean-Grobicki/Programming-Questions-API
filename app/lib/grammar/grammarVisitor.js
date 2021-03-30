@@ -1,5 +1,6 @@
 var helperInstance;
 const GrammarHelper = require("./grammarHelper.js").GrammarHelper;
+const random = require('../globalHelper.js').getRandomInt;
 
 const runVisitor = (input) =>
 {
@@ -72,7 +73,6 @@ class Visitor {
 
 const mispellWord = (word) =>
 {
-    const random = require('../templateRandomiser.js').randomInt;
     //Mispell the word or change case so the word is slightly wrong.
     if(word === "int")
     {
@@ -101,7 +101,6 @@ const mispellWord = (word) =>
 
 const randomLetter = (origLetter) =>
 {
-    const random = require('../templateRandomiser.js').randomInt;
     const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
     const index = random(letters.length-1);
     if(letters[index] === origLetter)

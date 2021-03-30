@@ -1,6 +1,6 @@
 const FlowChart = require('./flowchart.js').FlowChart;
+const getRandomInt = require('../globalHelper.js').getRandomInt;
 
-var flowchart;
 
 const getQuestionCode = () =>
 {
@@ -12,21 +12,37 @@ const getQuestionCode = () =>
 
 const generateFlowChart = () =>
 {
-    flowchart = new FlowChart(2);
-    flowchart.addNode("Value");
-    flowchart.addNode("IfElse");
-    flowchart.addNode("If");
-    flowchart.addNode("Value");
-    flowchart.addNode("While");
+    const flowchart = new FlowChart(2);
+    const loops = ["For", "While"];
+    const conditionals = ["IfElse", "If"];
+    var nodes = [];
+    nodes.push(loops[getRandomInt(loops.length)-1]);
+    nodes.push(conditionals[getRandomInt(conditionals.length)-1]);
+    nodes.push(conditionals[getRandomInt(conditionals.length)-1]);
+    nodes.push("Value");
+    nodes.push("Value");
+    nodes = shuffleArray(nodes);
+
+    nodes.forEach(type => {
+        flowchart.addNode(type);
+    });
+
     flowchart.outputVariables();
-    console.log(flowchart.getAllNodes());
-    // 1 For or While
-    // 2 If or ElseIfs
-    // 2 Value Manipulations
-    // It should be randomly between the options and the order of these randomly chosen aswell.
+
+    return flowchart.getAllNodes();
+}
 
 
-    // If we pass through the sequence order of the flowchart we may be able to mark without use of compiler.
+
+const shuffleArray = (array) =>
+{
+    for (var i = array.length-1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
 }
 
 module.exports = 

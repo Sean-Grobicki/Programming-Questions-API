@@ -1,5 +1,5 @@
 const getRandomInt = (max) => { 
-    return require('./templateRandomiser.js').randomInt(max); 
+    return require('../globalHelper.js').getRandomInt(max); 
 };
 
 class TemplateHelper
@@ -87,7 +87,7 @@ class Variable
 const getVarName = () => 
 {
     //const otherVarNames = 
-    const varNames = require('./varNames.js').varNames;
+    const varNames = require('../varNames.js').varNames;
     const varName = varNames[getRandomInt(varNames.length-1)];
     //Check varName isn't the same as any other variables.
     const helperInstance = require('./templateRandomiser.js').helperInstance;

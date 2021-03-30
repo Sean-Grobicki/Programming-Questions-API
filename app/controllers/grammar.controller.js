@@ -1,4 +1,4 @@
-const getRandomTemplate = require('../lib/templateRandomiser.js').getRandomTemplate;
+const getRandomTemplate = require('../lib/template/templateRandomiser.js').getRandomTemplate;
 const grammarVisitor = require('../lib/grammar/grammarVisitor.js');
 
 const getGrammarQuestion = (req,res) =>
@@ -6,6 +6,7 @@ const getGrammarQuestion = (req,res) =>
     const answerCode = getRandomTemplate();
     const errors = generateErrors(answerCode);
     const questionCode = generateQuestionCode(errors,answerCode);
+    console.log("Grammar GET");
     return res.send({
     "questionCode": questionCode,
     "answerCode": answerCode,
@@ -25,7 +26,6 @@ const generateQuestionCode = (errors,template) =>
     const templateLines = template.split("\r\n");
     for (let index = 0; index < templateLines.length; index++) {
         const element = templateLines[index];
-        //console.log(index + ": " + element);
     }
     errors.forEach(error => {
         // Got to the line number of that error.
@@ -33,7 +33,6 @@ const generateQuestionCode = (errors,template) =>
         const lineString = templateLines[lineNum];
         // Use .replace to replace the missing value with the error value.
         templateLines[lineNum] = lineString.replace(error.missingValue,error.errorValue);
-        console.log("Result: " + templateLines[lineNum] + " TempLineNum: " + lineNum);
     });
     //Join back the template and return it.
     const questionCode = templateLines.join("\r\n");
@@ -43,7 +42,6 @@ const generateQuestionCode = (errors,template) =>
 const formatJSONErrList = (errors) =>
 {
     var JSONArray = [];
-    console.log(errors);
     errors.forEach(error => {
         
         const JSONObject = {

@@ -151,7 +151,7 @@ class FlowChart
 
 const getRandomInt = (max) =>
 {
-  return Math.floor(Math.random() * Math.floor(max)) + 1;
+  return require('../globalHelper.js').getRandomInt(max);
 }
 
 
@@ -210,4 +210,5 @@ class ConditionalNode extends Node
 module.exports = 
 {
     FlowChart: FlowChart,
+    getRandomInt: getRandomInt,
 }

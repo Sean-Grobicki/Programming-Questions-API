@@ -1,4 +1,5 @@
 const Helper = require('./templateHelper.js').Helper;
+const getRandomInt = require('../globalHelper.js').getRandomInt;
 const helperInstance = new Helper();
 
 const getRandomTemplate = () =>
@@ -25,17 +26,13 @@ const getFile = () =>
     return file;
 }
 
-//Gets number from 1 to max inclusive. 
-const getRandomInt = (max) =>
-{
-  return Math.floor(Math.random() * Math.floor(max)) + 1;
-}
+
 
 const runVisitor = (input) =>
 {
   const antlr4 = require('antlr4');
-  const JavaLexer = require('./antlrGenerated/Java9Lexer.js');
-  const JavaParser = require('./antlrGenerated/Java9Parser.js');
+  const JavaLexer = require('../antlrGenerated/Java9Lexer.js');
+  const JavaParser = require('../antlrGenerated/Java9Parser.js');
 
   const chars = new antlr4.InputStream(input);
   const lexer = new JavaLexer.Java9Lexer(chars);
@@ -83,6 +80,5 @@ class Visitor {
 module.exports = 
 {
   getRandomTemplate: getRandomTemplate,
-  randomInt: getRandomInt,
   helperInstance: helperInstance,
 }

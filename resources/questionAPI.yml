@@ -165,20 +165,14 @@ components:
       title: Node
       type: object
       properties:
-        nodeText:
-          title: Node Text
-          type: string
-          example: If X < 5
         nodeID:
           title: Node ID
           type: integer
           example: 1
-        condition:
-          $ref: '#/components/schemas/Condition'
-    Condition:
-      title: Condition
-      type: object
-      properties:
+        nodeText:
+          title: Node Text
+          type: string
+          example: If X < 5
         trueNodeID:
           title: "True Node ID"
           type: integer

@@ -173,11 +173,11 @@ components:
           title: Node Text
           type: string
           example: If X < 5
-        trueNodeID:
+        trueNodeChildID:
           title: "True Node ID"
           type: integer
           example: 2
-        falseNodeID:
+        falseNodeChildID:
           title: "False Node ID"
           type: integer
           example: 3

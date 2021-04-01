@@ -71,7 +71,7 @@ paths:
           content:
             application/json:
                 schema:
-                  $ref: '#/components/schemas/AnswerCode'
+                  $ref: '#/components/schemas/MarkedAnswer'
             
 
   /trace:
@@ -181,6 +181,33 @@ components:
           title: "False Node ID"
           type: integer
           example: 3
+    MarkedAnswer:
+      title: Marked answer
+      type: object
+      properties:
+        operationsTable:
+          title: Table of Operations
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        compilerOutput:
+          title: The output given from the compiler
+          type: string
+        correctSolution:
+          title: Correct solution for the problem
+          type: string
+    Operation:
+      type: object
+      properties:
+        operationType:
+          title: the type of operation
+          type: string
+        javaCode:
+          title: the javacode for this operation
+          type: string
+        included:
+          title: have they included in their answer
+          type: boolean
     Trace:
       title: Successful Response
       type: object

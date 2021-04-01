@@ -12,9 +12,28 @@ const getProgrammingQuestion = (req,res) =>
 
 const markProgrammingQuestion = (req,res) =>
 {
-    // Antlr visitor could be used to see if the correct methods have been used to create theflowchart if we pass through the sequence order.
-    return res.send({"msg": "programming post is working"});
+    const helper = require('../lib/markProgramming/markProgramming.js');
+    const answer = req.body.questionCode;
+    const flowchart = req.body.flowChart;
+    const correctSolution = helper.getSolution(flowchart);
+    const compilerOutput =  helper.markAnswer(answer);
+    const operationsTable = helper.markOperations(answer);
+    
+    return res.send(markedSolutionToJSON(correctSolution,compilerOutput,operationsTable));
 }
+
+const markedSolutionToJSON = (correctSolution,compilerOutput,operationsTable) =>
+{
+    var JSONArray = [];
+    //loop through the operations table and put the relevant information into JSON Array.
+    const JSONObject = {
+        "operationsTable": JSONArray,
+        "compilerOutput": compilerOutput,
+        "correctSolution": correctSolution,
+    }
+    return JSONObject;
+}
+
 
 const flowChartToJSON = (flowchart) => 
 {

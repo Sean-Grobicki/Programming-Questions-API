@@ -9,7 +9,6 @@ class FlowChart
         this.getVarNames(noOfVariables);
         this.assignVariables();
     }
-
     
     getVarNames(noOfVariables)
     {
@@ -62,7 +61,6 @@ class FlowChart
     {
         return this.nodes;
     }
-
 
     addNode(type)
     {

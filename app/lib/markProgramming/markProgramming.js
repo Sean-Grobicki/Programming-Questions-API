@@ -1,15 +1,13 @@
+const OperationsTable = require('./markerHelpers.js').OperationsTable;
+var finalCode = "";
+var opTable;
+
 const getSolution = (flowchart) =>
 {
     const operations = getOperations(flowchart);
     // Create an operations table for each of these structures
-    const opTable = new OperationsTable();
-    operations.forEach(operation => {
-        opTable.addOperation(operation);        
-    });
-    opTable.displayTable();
+    opTable = new OperationsTable(operations);
     var startTemplate = require('../programming/programmingHelper.js').getQuestionCode();
-
-    // Replace the javacode in the opsTable with the correct code
     var nodeNumber = 0;
     for (let index = 0; index < operations.length; index++) 
     {
@@ -39,14 +37,8 @@ const getSolution = (flowchart) =>
             nodeNumber += 3;
         }
     }
-
-    // Use the operations table to write the javacode for each section.
-    const finalCode = startTemplate.replace("//Write your code here",opTable.getAllCode());
-
-    
-    // get the correct output for the program.
+    finalCode = startTemplate.replace("//Write your code here",opTable.getAllCode());
     return finalCode;
-    
 }
 
 const markAnswer = (answer) =>
@@ -55,13 +47,14 @@ const markAnswer = (answer) =>
 
     //Return the Output
 
-    // Check the output against the correct solution. 
+    // Check if the output is the same as the correct solution.
+    const correctOutput = require('./markerHelpers.js').runTracer(opTable);
+    console.log(correctOutput); 
 }
 
-const markOperations = (table,answer) =>
+const markOperations = (answer) =>
 {
     //Identify which of the operations the users answer has and mark ackwordingly.
-
     // Make sure the order is taken into account when calculating this.
 }
 
@@ -110,107 +103,6 @@ const getOperations = (flowchart) =>
     }
     return operations;
 } 
-
-
-class OperationsTable
-{
-    constructor()
-    {
-        this.operationTypes = [];
-        this.javaCode = [];
-        this.included = [];
-    }
-
-    displayTable()
-    {
-        for (let index = 0; index < this.operationTypes.length; index++) {
-            console.log(this.operationTypes[index]);
-            console.log(this.javaCode[index]);
-            console.log(this.included[index]);
-        }
-    }
-
-    addOperation(operationType)
-    {
-        const index = this.operationTypes.length;
-        this.operationTypes[index] = operationType;
-        this.javaCode[index] = "";
-        this.included[index] = false;
-    }
-
-    getOperationJavacode(index,nodes)
-    {
-        const operation = this.operationTypes[index];
-        if (operation === "If")
-        {
-            const expression = nodes[0].nodeText.replace("If ","");
-            const block = nodes[1].nodeText.replace("is", "=");
-            this.javaCode[index] =  `if (${expression}) 
-            {
-                ${block};
-            }`
-        }
-        else if(operation === "ElseIf")
-        {
-            const expression = nodes[0].nodeText.replace("If ","");
-            const trueBlock = nodes[1].nodeText.replace("is", "=");
-            const falseBlock = nodes[2].nodeText.replace("is","=");
-            this.javaCode[index] = `if (${expression})
-            {
-                ${trueBlock};
-            }
-            else
-            {
-                ${falseBlock};
-            }`
-        }
-        else if(operation === "While")
-        {   
-            const expression = nodes[0].nodeText.replace("If ","");
-            const block = nodes[1].nodeText.replace("is", "=");
-            this.javaCode[index] = `while (${expression})
-            {
-                ${block};
-            }`
-        }   
-        else if(operation === "For")
-        {
-            const expression = nodes[1].nodeText.replace("If ","");
-            const block = nodes[3].nodeText.replace("is","=");
-            this.javaCode[index] = `for(int index = 0; ${expression}; index ++)
-            {
-                ${block};
-            }`
-        }
-        else if (operation === "Assignment")
-        {
-            
-            const expression = nodes[0].nodeText.replace("is", "=");
-            this.javaCode[index] = `int ${expression};`
-        }
-        else if(operation === "Value")
-        {
-            const expression = nodes[0].nodeText.replace("is", "=");
-            this.javaCode[index] = `${expression};`
-        }
-        else if (operation === "Output")
-        {
-            const variable = nodes[0].nodeText.replace("Output ","");
-            this.javaCode[index] = `System.out.println(${variable});`;
-        }
-    }
-
-    getAllCode()
-    {
-        return this.javaCode.join('\n');
-    }
-
-    getJSON()
-    {
-
-    }
-}
-
 
 module.exports = 
 {

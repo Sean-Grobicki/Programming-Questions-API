@@ -332,7 +332,7 @@ const runTracer = (opTable) =>
     return output;
 }
 
-const runCompiler = async(answerCode) =>
+const runCompiler = (answerCode) =>
 {
     const toSend = answerCode.split("\n").join("").split("\r").join("");
     const headers = {"Content-Type": "application/json"};

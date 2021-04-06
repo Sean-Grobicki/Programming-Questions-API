@@ -190,14 +190,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Operation'
-        compilerErros:
+        compilerOutput:
           title: The output given from the compiler
           type: string
         correctSolution:
           title: Correct solution for the problem
-          type: string
-        userOutput:
-          title: Output of the users program
           type: string
         correctOutput:
           title: The correct output of the program

@@ -44,11 +44,12 @@ const getSolution = (flowchart) =>
 const markAnswer = async(answer) =>
 {
     //Run Against the compiler
-    //const response = await require('./markerHelpers.js').runCompiler(answer);
+    const response = await require('./markerHelpers.js').runCompiler(answer);
     //Return the Output
     const correctOutput = require('./markerHelpers.js').runTracer(opTable);
     opTable.output = correctOutput;
-    markOperations(answer); 
+    console.log(response.output); 
+    return response.output;
 }
 
 const markOperations = (answer) =>

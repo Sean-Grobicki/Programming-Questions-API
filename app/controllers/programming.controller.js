@@ -10,13 +10,13 @@ const getProgrammingQuestion = (req,res) =>
     });
 };
 
-const markProgrammingQuestion = (req,res) =>
+const markProgrammingQuestion = async(req,res) =>
 {
     const helper = require('../lib/markProgramming/markProgramming.js');
     const answer = req.body.questionCode;
     const flowchart = req.body.flowChart;
     const correctSolution = helper.getSolution(flowchart);
-    const compilerOutput =  helper.markAnswer(answer);
+    const compilerOutput =  await helper.markAnswer(answer);
     const operationsTable = helper.markOperations(answer);
     return res.send(markedSolutionToJSON(correctSolution,compilerOutput,operationsTable));
 }
@@ -38,6 +38,7 @@ const markedSolutionToJSON = (correctSolution,compilerOutput,operationsTable) =>
         "correctSolution": correctSolution,
         "correctOutput": operationsTable.output,
     }
+    console.log(JSONObject);
     return JSON.stringify(JSONObject);
 }
 

@@ -37,25 +37,32 @@ const getSolution = (flowchart) =>
             nodeNumber += 3;
         }
     }
-    finalCode = startTemplate.replace("//Write your code here",opTable.getAllCode());
+    finalCode = startTemplate.replace("        //Write your code here",opTable.getAllCode());
     return finalCode;
 }
 
-const markAnswer = (answer) =>
+const markAnswer = async(answer) =>
 {
     //Run Against the compiler
-
+    //const response = await require('./markerHelpers.js').runCompiler(answer);
     //Return the Output
-
-    // Check if the output is the same as the correct solution.
     const correctOutput = require('./markerHelpers.js').runTracer(opTable);
-    console.log(correctOutput); 
+    opTable.output = correctOutput;
+    markOperations(answer); 
 }
 
 const markOperations = (answer) =>
 {
-    //Identify which of the operations the users answer has and mark ackwordingly.
-    // Make sure the order is taken into account when calculating this.
+    for (let index = 0; index < opTable.operations.length; index++) {
+        const operation = opTable.getOperation(index);
+        const answerFormatted = answer.split(" ").join("");
+        const codeFormatted = operation.code.split(" ").join("");
+        if (answerFormatted.includes(codeFormatted))
+        {
+            operation.included = true;
+        }
+    }
+    return opTable;
 }
 
 const getOperations = (flowchart) =>

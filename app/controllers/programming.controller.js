@@ -18,20 +18,27 @@ const markProgrammingQuestion = (req,res) =>
     const correctSolution = helper.getSolution(flowchart);
     const compilerOutput =  helper.markAnswer(answer);
     const operationsTable = helper.markOperations(answer);
-    
     return res.send(markedSolutionToJSON(correctSolution,compilerOutput,operationsTable));
 }
 
 const markedSolutionToJSON = (correctSolution,compilerOutput,operationsTable) =>
 {
     var JSONArray = [];
+    operationsTable.operations.forEach(op => {
+        JSONArray.push({
+            "operationType": op.type,
+            "javaCode": op.code,
+            "included": op.included,
+        });
+    });
     //loop through the operations table and put the relevant information into JSON Array.
     const JSONObject = {
         "operationsTable": JSONArray,
         "compilerOutput": compilerOutput,
         "correctSolution": correctSolution,
+        "correctOutput": operationsTable.output,
     }
-    return JSONObject;
+    return JSON.stringify(JSONObject);
 }
 
 

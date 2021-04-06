@@ -1,5 +1,5 @@
-public class Template3 {
-
+public class Template3 
+{
     public static void main(String[] args)
     {
         int number1 = 5;

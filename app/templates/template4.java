@@ -1,4 +1,4 @@
-public class Template4 
+public class GrammarQuestion 
 {
     public static void main(String[] args)
     {

@@ -48,7 +48,6 @@ const markAnswer = async(answer) =>
     //Return the Output
     const correctOutput = require('./markerHelpers.js').runTracer(opTable);
     opTable.output = correctOutput;
-    console.log(response.output); 
     return response.output;
 }
 

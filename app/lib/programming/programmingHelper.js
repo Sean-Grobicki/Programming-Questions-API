@@ -1,5 +1,6 @@
 const FlowChart = require('./flowchart.js').FlowChart;
 const getRandomInt = require('../globalHelper.js').getRandomInt;
+const shuffleArray = require('../globalHelper.js').shuffleArray;
 
 
 const getQuestionCode = () =>
@@ -32,18 +33,6 @@ const generateFlowChart = () =>
     return flowchart.getAllNodes();
 }
 
-
-
-const shuffleArray = (array) =>
-{
-    for (var i = array.length-1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-    return array;
-}
 
 module.exports = 
 {

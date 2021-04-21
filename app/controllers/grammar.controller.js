@@ -6,7 +6,6 @@ const getGrammarQuestion = (req,res) =>
     const answerCode = getRandomTemplate();
     const errors = generateErrors(answerCode);
     const questionCode = generateQuestionCode(errors,answerCode);
-    console.log("Grammar GET");
     return res.send({
     "questionCode": questionCode,
     "answerCode": answerCode,

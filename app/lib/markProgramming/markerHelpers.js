@@ -146,7 +146,6 @@ const runTracer = (opTable) =>
         {
             tracer.checkValueChange(lines[0]);
         }
-        console.log("Values: " + tracer.varValues + " Operation: " + operation );
     }
     var output = '';
     tracer.varValues.forEach(value => {

@@ -24,7 +24,6 @@ const generateTraceTable = () =>
     const TraceTable = require('../lib/trace/traceHelper.js').TraceTable;
     const traceTable = new TraceTable(varNames,varValues);
     const code = program.programToRun;
-    console.log(program.program);
     const lines = code.split('\n');
     for (let index = 0; index < 5; index++) 
     {
@@ -56,9 +55,6 @@ const generateTraceTable = () =>
         varValues = tracer.varValues;
         traceTable.addTableRow(varValues);
     }
-    console.log(traceTable.variables[0].values);
-    console.log(traceTable.variables[1].values);
-    console.log(traceTable.variables[2].values);
     return traceTable;
 }
 

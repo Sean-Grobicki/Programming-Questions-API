@@ -3,7 +3,6 @@ const getProgrammingQuestion = (req,res) =>
     const helper = require('../lib/programming/programmingHelper.js');
     const questionCode = helper.getQuestionCode();
     const flowchart = helper.generateFlowChart();
-    console.log("Programming GET");
     return res.send({
         "questionCode": questionCode,
         "flowChart": flowChartToJSON(flowchart),
@@ -38,7 +37,6 @@ const markedSolutionToJSON = (correctSolution,compilerOutput,operationsTable) =>
         "correctSolution": correctSolution,
         "correctOutput": operationsTable.output,
     }
-    console.log(JSONObject);
     return JSON.stringify(JSONObject);
 }
 

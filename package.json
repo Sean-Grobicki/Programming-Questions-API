@@ -4,6 +4,7 @@
   "description": "API which wil generate 3 different types of programming questions",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "node server.js"
   },
   "author": "Sean Grobicki",

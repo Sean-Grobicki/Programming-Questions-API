@@ -30,7 +30,7 @@ class TraceProgram
     getVarName() 
     {
         const varNames = require('../varNames.js').varNames;
-        const varName = varNames[getRandomInt(varNames.length-1)];
+        const varName = varNames[getRandomInt(varNames.length)-1];
         const toFind = this.variables.includes(varName);
         if (toFind === false)
         {
@@ -86,7 +86,7 @@ class TraceProgram
         const types = ["If","ElseIf"];
         var operators = ["Value","Value","Value"];
         for (let index = 0; index < 2; index++) {
-            operators.push(types[getRandomInt(types.length-1)]);
+            operators.push(types[getRandomInt(types.length)-1]);
         }
         return shuffleArray(operators);
     }
@@ -146,7 +146,7 @@ class TraceProgram
     getComparsion()
     {
         const operators = [" == "," != "," < "," > "," <= "," >= "];
-        const operator = operators[getRandomInt(operators.length-1)];
+        const operator = operators[getRandomInt(operators.length)-1];
         const variable = this.getRandomVariable();
         const value = getRandomInt(10);
         return variable + operator + value;
@@ -154,7 +154,7 @@ class TraceProgram
 
     getRandomVariable()
     {
-        return this.variables[getRandomInt(this.variables.length-1)];
+        return this.variables[getRandomInt(this.variables.length)-1];
     }
 
 }

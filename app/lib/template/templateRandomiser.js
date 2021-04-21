@@ -14,7 +14,6 @@ const getRandomTemplate = () =>
         program = program.split(regex);
         program = program.join(varAssign + variable.getValue());
     });
-    console.log(program);
     return program;
 }
 

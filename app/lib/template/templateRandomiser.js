@@ -6,7 +6,6 @@ const getRandomTemplate = () =>
 {
     var program = getFile();
     runVisitor(program);
-    console.log(helperInstance.getVariables());
     helperInstance.getVariables().forEach(variable => {
         program = program.split(variable.getOldName()).join(variable.getNewName());
         //Try and replace the variable assignment with the correct number using regex.
@@ -15,6 +14,7 @@ const getRandomTemplate = () =>
         program = program.split(regex);
         program = program.join(varAssign + variable.getValue());
     });
+    console.log(program);
     return program;
 }
 
@@ -24,7 +24,6 @@ const getFile = () =>
     //add way to get a random template from 
     const filename = './app/templates/template'+ getRandomInt(5) + '.java';
     const file = fs.readFileSync(filename,'utf-8');
-    console.log(file);
     return file;
 }
 

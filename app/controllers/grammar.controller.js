@@ -23,7 +23,7 @@ const generateErrors = (template) =>
 const generateQuestionCode = (errors,template) =>
 {
     //Split the template so it is split into lines.
-    const templateLines = template.split("\r\n");
+    const templateLines = template.split("\n");
     for (let index = 0; index < templateLines.length; index++) {
         const element = templateLines[index];
     }
@@ -35,7 +35,7 @@ const generateQuestionCode = (errors,template) =>
         templateLines[lineNum] = lineString.replace(error.missingValue,error.errorValue);
     });
     //Join back the template and return it.
-    const questionCode = templateLines.join("\r\n");
+    const questionCode = templateLines.join("\n");
     return questionCode;
 }
 

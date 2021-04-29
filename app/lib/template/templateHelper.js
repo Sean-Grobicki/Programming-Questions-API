@@ -88,7 +88,7 @@ const getVarName = () =>
 {
     //const otherVarNames = 
     const varNames = require('../varNames.js').varNames;
-    const varName = varNames[getRandomInt(varNames.length-1)];
+    const varName = varNames[getRandomInt(varNames.length)-1];
     //Check varName isn't the same as any other variables.
     const helperInstance = require('./templateRandomiser.js').helperInstance;
     if (!helperInstance.isSameName(varName))

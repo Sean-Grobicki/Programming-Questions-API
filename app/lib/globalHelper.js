@@ -105,7 +105,7 @@ class Tracer
         {
             const values = comparison.split(" == ");
             const toFind = values[0].split(/ /g).join("");
-            const variable = this.varValues[this.varNames.indexOf(toFind)];
+            const variable = parseInt(this.varValues[this.varNames.indexOf(toFind)]);
             const number = parseInt(values[1]);
             return variable === number;
         }
@@ -113,31 +113,15 @@ class Tracer
         {
             const values = comparison.split(" != ");
             const toFind = values[0].split(/ /g).join("");
-            const variable = this.varValues[this.varNames.indexOf(toFind)];
+            const variable = parseInt(this.varValues[this.varNames.indexOf(toFind)]);
             const number = parseInt(values[1]);
             return variable !== number;
-        }
-        else if (comparison.includes(">"))
-        {
-            const values = comparison.split(" > ");
-            const toFind = values[0].split(/ /g).join("");
-            const variable = this.varValues[this.varNames.indexOf(toFind)];
-            const number = parseInt(values[1]);
-            return variable > number;
-        }
-        else if (comparison.includes("<"))
-        {
-            const values = comparison.split(" < ");
-            const toFind = values[0].split(/ /g).join("");
-            const variable = this.varValues[this.varNames.indexOf(toFind)];
-            const number = parseInt(values[1]);
-            return variable < number;
         }
         else if (comparison.includes("<="))
         {
             const values = comparison.split(" <= ");
             const toFind = values[0].split(/ /g).join("");
-            const variable = this.varValues[this.varNames.indexOf(toFind)];
+            const variable = parseInt(this.varValues[this.varNames.indexOf(toFind)]);
             const number = parseInt(values[1]);
             return variable <= number;
         }
@@ -145,17 +129,31 @@ class Tracer
         {
             const values = comparison.split(" >= ");
             const toFind = values[0].split(/ /g).join("");
-            const variable = this.varValues[this.varNames.indexOf(toFind)];
+            const variable = parseInt(this.varValues[this.varNames.indexOf(toFind)]);
             const number = parseInt(values[1]);
             return variable >= number;
+        }
+        else if (comparison.includes(">"))
+        {
+            const values = comparison.split(" > ");
+            const toFind = values[0].split(/ /g).join("");
+            const variable = parseInt(this.varValues[this.varNames.indexOf(toFind)]);
+            const number = parseInt(values[1]);
+            return variable > number;
+        }
+        else if (comparison.includes("<"))
+        {
+            const values = comparison.split(" < ");
+            const toFind = values[0].split(/ /g).join("");
+            const variable = parseInt(this.varValues[this.varNames.indexOf(toFind)]);
+            const number = parseInt(values[1]);
+            return variable < number;
         }
     }
 
 
     changeValue(varIndex, expression)
     {
-        //expression should only be bit after the equals
-        //eg. pizzas * 5
         if(expression.includes(" * "))
         {
             const values = expression.split(" * ");

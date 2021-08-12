@@ -1,0 +1,3 @@
+# Programming-Questions-API
+For my final year project I chose to create an application which will randomly generate programming question with answers and feedback. This is the backend API for that project. 
+This was developed using node.js in Visual Studio code and is hosted on Heroku so the [frontend]() can interact with this so the user will get the generated questions. All the information for the grammar and trace questions are generated from GET requests to this API while the programming question requires a GET request to generate the question and a POST request to mark that given question. 
